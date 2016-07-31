@@ -1,28 +1,81 @@
-<!doctype html>
-<html lang="en" ng-app="yourEbusinessAdmin">
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="admin" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Your E-Business</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/animations.css">
-
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/services.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
+  <div ng-controller="TopBarCtrl">
+    <top-bar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">Your eBiz</a></h1>
+        </li>
+        <li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
+      </ul>
 
-  <div class="view-container">
-    <div ng-view class="view-frame"></div>
+      <top-bar-section>
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li has-dropdown>
+            <a href="#">Profile</a>
+            <ul top-bar-dropdown>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Log-out</a></li>
+            </ul>
+          </li> 
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li has-dropdown>
+            <a href="#">Modules</a>
+            <ul top-bar-dropdown>
+              <li has-dropdown>
+                <a href="#">Administration</a>
+                <ul top-bar-dropdown>
+                  <li><a href="#">Admin 1</a></li>
+                  <li><a href="#">Admin 2</a></li>
+                </ul>
+              </li>
+              <li has-dropdown>
+                <a href="#">People</a>
+                <ul top-bar-dropdown>
+                  <li><a href="#">Names</a></li>
+                </ul>
+              </li>
+              <li has-dropdown>
+                <a href="#">Business Partners</a>
+                <ul top-bar-dropdown>
+                  <li><a href="#">Master Data</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </top-bar-section>
+    </top-bar>
   </div>
+  
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
 
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="bower_components/angular-foundation/mm-foundation-tpls.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
