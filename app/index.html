@@ -12,7 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+
   <link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -53,7 +57,7 @@
               <li has-dropdown>
                 <a href="#">People</a>
                 <ul top-bar-dropdown>
-                  <li><a href="#">Names</a></li>
+                  <li><a href="#">Master Data</a></li>
                 </ul>
               </li>
               <li has-dropdown>
@@ -75,7 +79,10 @@
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script type="text/javascript" src="bower_components/angular-foundation/mm-foundation-tpls.min.js"></script>
-  <script src="app.js"></script>
+  <script src="bower_components/angular-foundation/mm-foundation-tpls.min.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
+  <script src="components/topBarCtrl.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 </body>
 </html>

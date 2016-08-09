@@ -1,0 +1,1 @@
+ebiz.controller('TopBarCtrl', function ($scope) {});
