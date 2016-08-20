@@ -54,3 +54,10 @@ ebizController.controller('humanResource', ['$scope',
 		];
 	}
 ]);
+
+ebizController.controller('welcome', ['$scope', '$routeParams', '$http',
+	function($scope, $routeParams, $http) {
+		$scope.access_token = $routeParams.access_token;
+		$http.get('http://yourebusinessrest.com')
+	}
+]);
