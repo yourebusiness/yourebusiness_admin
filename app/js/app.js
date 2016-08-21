@@ -10,8 +10,12 @@ app.config(['$routeProvider',
 				controller: 'humanResource'
 			}).
 			when('/app/:access_token', {
+				templateUrl: 'partials/login.html',
+				controller: 'beaconCtrl'
+			}).
+			when('/', {
 				templateUrl: 'partials/welcome.html',
-				controller: 'welcome'
+				controller: 'welcomeCtrl'
 			})
 	}
 ]);

@@ -55,21 +55,32 @@ ebizController.controller('humanResource', ['$scope',
 	}
 ]);
 
-ebizController.controller('welcome', ['$scope', '$routeParams', '$http',
-	function($scope, $routeParams, $http) {
-		// $scope.access_token = $routeParams.access_token;
-
-		var abs_url = "http://yourebusinessrest.com/resource.php";
+ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$location',
+	function($scope, $routeParams, $http, $location) {
+		var absUrl = "http://yourebusinessrest.com/resource.php";
 		var data = {"access_token": $routeParams.access_token};
 
 		var successCallback = function(response) {
-			console.log("Success callback.");
+			window.sessionStorage.setItem("access_token", $routeParams.access_token);
+			$location.path('/');
+			console.log("Success.");
 		}
-
 		var errorCallback = function(response) {
-			console.log("Error callback.");
+			console.log("Error.");
 		}
 
-		$http.post(abs_url, data).then(successCallback, errorCallback);
+		$http.post(absUrl, data).then(successCallback, errorCallback);
+	}
+]);
+
+ebizController.controller('welcomeCtrl', ['$scope', '$location', '$window',
+	function($scope, $location, $window) {
+		if (typeof(Storage) !== "undefined") {
+			if (!sessionStorage.getItem("access_token")) {
+				$window.location.href = "http://localhost:8080/#/login";
+			}
+		} else {
+			console.log("No web storage support.");
+		}
 	}
 ]);
