@@ -57,7 +57,19 @@ ebizController.controller('humanResource', ['$scope',
 
 ebizController.controller('welcome', ['$scope', '$routeParams', '$http',
 	function($scope, $routeParams, $http) {
-		$scope.access_token = $routeParams.access_token;
-		$http.get('http://yourebusinessrest.com')
+		// $scope.access_token = $routeParams.access_token;
+
+		var abs_url = "http://yourebusinessrest.com/resource.php";
+		var data = {"access_token": $routeParams.access_token};
+
+		var successCallback = function(response) {
+			console.log("Success callback.");
+		}
+
+		var errorCallback = function(response) {
+			console.log("Error callback.");
+		}
+
+		$http.post(abs_url, data).then(successCallback, errorCallback);
 	}
 ]);
