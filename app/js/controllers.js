@@ -45,13 +45,26 @@ ebizController.controller('treeController', function($scope) {
 	];
 });
 
-ebizController.controller('humanResource', ['$scope',
-	function($scope) {
+ebizController.controller('humanResourceCtrl', ['$scope', '$window', '$http',
+	function($scope, $window, $http) {
+		var employeeConfig = {
+			method: 'GET',
+			url: 'http://'
+		};
+
 		$scope.records = [
 			{userId: "1", username: "abs@yopmail.com", fName: "Jhunex", lName: "Morcilla"},
 			{userId: "2", username: "simply.amazing.wizard@gmail.com", fName: "Jhun", lName: "Pio"},
 			{userId: "3", username: "ricky_abong@yahoo.com", fName: "Ricky", lName: "Abong"}
 		];
+
+		if (typeof(Storage) !== "undefined") {
+			if (!sessionStorage.getItem("access_token")) {
+				$window.location.href = "http://localhost:8080/#/login";
+			}
+		} else {
+			console.log("No web storage support.");
+		}
 	}
 ]);
 
@@ -63,7 +76,7 @@ ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$lo
 		var successCallback = function(response) {
 			window.sessionStorage.setItem("access_token", $routeParams.access_token);
 			$location.path('/');
-			console.log("Success.");
+			console.log("Success log-in.");
 		}
 		var errorCallback = function(response) {
 			console.log("Error.");
@@ -73,14 +86,23 @@ ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$lo
 	}
 ]);
 
-ebizController.controller('welcomeCtrl', ['$scope', '$location', '$window',
-	function($scope, $location, $window) {
+ebizController.controller('welcomeCtrl', ['$scope', '$window',
+	function($scope, $window) {
 		if (typeof(Storage) !== "undefined") {
 			if (!sessionStorage.getItem("access_token")) {
 				$window.location.href = "http://localhost:8080/#/login";
 			}
 		} else {
 			console.log("No web storage support.");
+		}
+	}
+]);
+
+ebizController.controller('log-out', ['$window',
+	function($window) {
+		if (typeof(Storage) !== "undefined") {
+			sessionStorage.removeItem("access_token");
+			$window.location.href = "http://localhost:8080/#/login";
 		}
 	}
 ]);
