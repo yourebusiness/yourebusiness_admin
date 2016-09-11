@@ -10,6 +10,7 @@ app.config(['$routeProvider',
 				controller: 'log-out'
 			}).
 			when('/hr', {
+				// to call http://yourebusiness.com/admin/#/hr
 				templateUrl: 'partials/hr-tbl.html',
 				controller: 'humanResourceCtrl'
 			}).

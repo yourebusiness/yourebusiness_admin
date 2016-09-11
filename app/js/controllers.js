@@ -47,7 +47,8 @@ ebizController.controller('treeController', function($scope) {
 
 ebizController.controller('humanResourceCtrl', ['$scope', '$window', '$http',
 	function($scope, $window, $http) {
-		var employeeConfig = {
+		console.log("Called here...")
+		/*var employeeConfig = {
 			method: 'GET',
 			url: 'http://'
 		};
@@ -64,12 +65,13 @@ ebizController.controller('humanResourceCtrl', ['$scope', '$window', '$http',
 			}
 		} else {
 			console.log("No web storage support.");
-		}
+		}*/
 	}
 ]);
 
 ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$location',
 	function($scope, $routeParams, $http, $location) {
+		// window.location = "https://google.com";
 		var absUrl = "http://yourebusinessrest.com/resource.php";
 		var data = {"access_token": $routeParams.access_token};
 
@@ -90,7 +92,7 @@ ebizController.controller('welcomeCtrl', ['$scope', '$window',
 	function($scope, $window) {
 		if (typeof(Storage) !== "undefined") {
 			if (!sessionStorage.getItem("access_token")) {
-				$window.location.href = "http://localhost:8080/#/login";
+				$window.location.href = "http://127.0.0.1/#/login";
 			}
 		} else {
 			console.log("No web storage support.");
