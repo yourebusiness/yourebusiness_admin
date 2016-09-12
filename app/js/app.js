@@ -15,6 +15,7 @@ app.config(['$routeProvider',
 				controller: 'humanResourceCtrl'
 			}).
 			when('/app/:access_token', {
+				// to call http://yourebusiness.com/admin/#/app/:access_token
 				templateUrl: 'partials/login.html',
 				controller: 'beaconCtrl'
 			}).

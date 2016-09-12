@@ -71,9 +71,7 @@ ebizController.controller('humanResourceCtrl', ['$scope', '$window', '$http',
 
 ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$location',
 	function($scope, $routeParams, $http, $location) {
-		// window.location = "https://google.com";
-		var absUrl = "http://yourebusinessrest.com/resource.php";
-		var data = {"access_token": $routeParams.access_token};
+		var absUrl = "http://www.yourebusiness.com/verify_token";
 
 		var successCallback = function(response) {
 			window.sessionStorage.setItem("access_token", $routeParams.access_token);
