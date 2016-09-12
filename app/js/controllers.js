@@ -72,6 +72,10 @@ ebizController.controller('humanResourceCtrl', ['$scope', '$window', '$http',
 ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$location',
 	function($scope, $routeParams, $http, $location) {
 		var absUrl = "http://www.yourebusiness.com/verify_token";
+		var config = {
+			Accept: 'Application/json',
+			Authorization: 'Bearer '.concat($routeParams.access_token)
+		};
 
 		var successCallback = function(response) {
 			window.sessionStorage.setItem("access_token", $routeParams.access_token);
@@ -79,10 +83,10 @@ ebizController.controller('beaconCtrl', ['$scope', '$routeParams', '$http', '$lo
 			console.log("Success log-in.");
 		}
 		var errorCallback = function(response) {
-			console.log("Error.");
+			console.log("Error in beaconCtrl.");
 		}
 
-		$http.post(absUrl, data).then(successCallback, errorCallback);
+		$http.post(absUrl, data, config).then(successCallback, errorCallback);
 	}
 ]);
 
